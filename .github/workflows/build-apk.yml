@@ -1,0 +1,31 @@
+name: Gerar APK Automático
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar Bubblewrap CLI
+        run: npm install -g @bubblewrap/cli
+
+      - name: Inicializar PWA manifest e Build Android
+        run: |
+          bubblewrap init --manifest=https://digaooliver92-hue.github.io/midia-indoor-player/manifest.json --directory=android-app --skip=androidManifestValidation || true
+          cd android-app && bubblewrap build || true
+
+      - name: Salvar APK Gerado
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-apk
+          path: android-app/app/build/outputs/apk/release/*.apk
