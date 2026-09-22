@@ -19,13 +19,18 @@ jobs:
       - name: Instalar Bubblewrap CLI
         run: npm install -g @bubblewrap/cli
 
-      - name: Inicializar PWA manifest e Build Android
+      - name: Inicializar Projeto PWA
         run: |
-          bubblewrap init --manifest=https://digaooliver92-hue.github.io/midia-indoor-player/manifest.json --directory=android-app --skip=androidManifestValidation || true
-          cd android-app && bubblewrap build || true
+          bubblewrap init --manifest=https://digaooliver92-hue.github.io/midia-indoor-player/manifest.json --skip=androidManifestValidation
+
+      - name: Compilar APK
+        run: |
+          bubblewrap build
 
       - name: Salvar APK Gerado
         uses: actions/upload-artifact@v4
         with:
           name: app-apk
-          path: android-app/app/build/outputs/apk/release/*.apk
+          path: |
+            *.apk
+            app/build/outputs/apk/release/*.apk
