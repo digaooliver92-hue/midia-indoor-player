@@ -11,6 +11,12 @@ jobs:
       - name: Checkout do Repositório
         uses: actions/checkout@v4
 
+      - name: Instalar Java e Ferramentas Android
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
@@ -19,18 +25,16 @@ jobs:
       - name: Instalar Bubblewrap CLI
         run: npm install -g @bubblewrap/cli
 
-      - name: Inicializar Projeto PWA
+      - name: Gerar TWA sem interatividade
         run: |
-          bubblewrap init --manifest=https://digaooliver92-hue.github.io/midia-indoor-player/manifest.json --skip=androidManifestValidation
+          npx @bubblewrap/cli init --manifest=https://digaooliver92-hue.github.io/midia-indoor-player/manifest.json --directory=android-app --skip=androidManifestValidation --defaults
 
       - name: Compilar APK
         run: |
-          bubblewrap build
+          cd android-app && npm run build
 
       - name: Salvar APK Gerado
         uses: actions/upload-artifact@v4
         with:
           name: app-apk
-          path: |
-            *.apk
-            app/build/outputs/apk/release/*.apk
+          path: android-app/app/build/outputs/apk/release/*.apk
