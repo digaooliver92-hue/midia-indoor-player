@@ -17,9 +17,10 @@
   ],
   "icons": [
     {
-      "src": "https://digaooliver92-hue.github.io/midia-indoor-player/icon.png",
+      "src": "https://www.pwabuilder.com/assets/images/pwabuilder-logo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
