@@ -2,13 +2,22 @@
   "name": "Audio Market",
   "short_name": "AudioMarket",
   "start_url": "./index.html",
+  "id": "https://digaooliver92-hue.github.io/midia-indoor-player/",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#00D2FF",
-  "description": "Player de Midia Indoor",
+  "description": "Player de Midia Indoor multi-cliente integrado com VPS.",
+  "orientation": "any",
+  "lang": "pt-BR",
+  "prefer_related_applications": false,
+  "categories": [
+    "utilities",
+    "video"
+  ],
   "icons": [
     {
-      "src": "https://digaooliver92-hue.github.io/midia-indoor-player/icon.png",
+      "src": "./icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
