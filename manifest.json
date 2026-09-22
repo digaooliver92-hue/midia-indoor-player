@@ -1,7 +1,7 @@
 {
-  "name": "Midia Indoor Player",
-  "short_name": "MidiaIndoor",
-  "description": "Aplicativo de Midia Indoor para reproducao de playlists de video multi-cliente integradas com VPS.",
+  "name": "Audio Market Mídia Indoor",
+  "short_name": "AudioMarket",
+  "description": "Player profissional de Midia Indoor multi-cliente integrado com VPS para Audio Market.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
@@ -10,6 +10,12 @@
     {
       "src": "https://digaooliver92-hue.github.io/midia-indoor-player/icon.png",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://digaooliver92-hue.github.io/midia-indoor-player/icon.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
