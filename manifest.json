@@ -1,9 +1,16 @@
 {
   "name": "Audio Market",
   "short_name": "AudioMarket",
-  "description": "Player de Midia Indoor",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#00D2FF"
+  "theme_color": "#00D2FF",
+  "description": "Player de Midia Indoor",
+  "icons": [
+    {
+      "src": "https://digaooliver92-hue.github.io/midia-indoor-player/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
