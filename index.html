@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Áudio Market - Player Mídia Indoor</title>
-    <link rel="manifest" href="manifest.json">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { width: 100%; height: 100%; background: #000; overflow: hidden; font-family: sans-serif; }
@@ -22,60 +21,35 @@
     </style>
 </head>
 <body>
-
-    <!-- Tela de Configuração Inicial Áudio Market -->
     <div id="config-screen">
         <h1>Áudio Market</h1>
         <p>Digite o identificador da pasta do cliente na VPS:</p>
         <input type="text" id="clienteInput" placeholder="Ex: cliente_joao" value="cliente_joao">
         <button onclick="iniciarPlayer()">Iniciar Player</button>
     </div>
-
-    <!-- Elemento de Vídeo -->
     <video id="player" autoplay muted playsinline style="display:none;"></video>
-
     <script>
         function iniciarPlayer() {
             const cliente = document.getElementById('clienteInput').value.trim();
-            if(!cliente) {
-                alert("Digite o nome da pasta do cliente!");
-                return;
-            }
-
+            if(!cliente) { alert("Digite o nome da pasta do cliente!"); return; }
             document.getElementById('config-screen').style.display = 'none';
             const videoElement = document.getElementById('player');
             videoElement.style.display = 'block';
-
             const baseUrl = `http://167.99.4.209/${cliente}/videos/`;
-            const playlist = [
-                baseUrl + "comercial1.mp4",
-                baseUrl + "comercial2.mp4",
-                baseUrl + "institucional.mp4"
-            ];
-
+            const playlist = [ baseUrl + "comercial1.mp4", baseUrl + "comercial2.mp4", baseUrl + "institucional.mp4" ];
             let currentIndex = 0;
-
             function playNext() {
                 if (playlist.length === 0) return;
                 videoElement.src = playlist[currentIndex];
                 videoElement.load();
-                videoElement.play().catch(e => {
-                    console.log("Erro ao reproduzir, tentando próximo...", e);
-                    proximoVideo();
-                });
+                videoElement.play().catch(e => { proximoVideo(); });
             }
-
             function proximoVideo() {
                 currentIndex = (currentIndex + 1) % playlist.length;
                 playNext();
             }
-
             videoElement.addEventListener('ended', proximoVideo);
-            videoElement.addEventListener('error', () => {
-                console.log("Erro no arquivo de vídeo, pulando...");
-                setTimeout(proximoVideo, 2000);
-            });
-
+            videoElement.addEventListener('error', () => { setTimeout(proximoVideo, 2000); });
             playNext();
         }
     </script>
