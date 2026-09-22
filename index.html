@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Áudio Market - Player Mídia Indoor</title>
+    <title>Audio Market - Player Mídia Indoor</title>
+    <link rel="manifest" href="./manifest.json">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { width: 100%; height: 100%; background: #000; overflow: hidden; font-family: sans-serif; }
@@ -13,16 +14,16 @@
             background: rgba(0,0,0,0.95); display: flex; flex-direction: column;
             justify-content: center; align-items: center; color: #fff; z-index: 10;
         }
-        h1 { color: #00ff66; margin-bottom: 5px; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { color: #00D2FF; margin-bottom: 5px; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; }
         p { margin-bottom: 15px; color: #aaa; }
         input, button { padding: 12px 20px; font-size: 18px; margin: 10px; border-radius: 5px; border: none; }
         input { width: 300px; text-align: center; background: #222; color: #fff; border: 1px solid #444; }
-        button { background: #00ff66; color: #000; cursor: pointer; font-weight: bold; }
+        button { background: #00D2FF; color: #000; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
     <div id="config-screen">
-        <h1>Áudio Market</h1>
+        <h1>Audio Market</h1>
         <p>Digite o identificador da pasta do cliente na VPS:</p>
         <input type="text" id="clienteInput" placeholder="Ex: cliente_joao" value="cliente_joao">
         <button onclick="iniciarPlayer()">Iniciar Player</button>
