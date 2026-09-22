@@ -17,7 +17,7 @@
   ],
   "icons": [
     {
-      "src": "./icon.png",
+      "src": "https://digaooliver92-hue.github.io/midia-indoor-player/icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
