@@ -1,7 +1,7 @@
 {
   "name": "Audio Market Mídia Indoor",
   "short_name": "AudioMarket",
-  "description": "Player profissional de Midia Indoor multi-cliente integrado com VPS para Audio Market.",
+  "description": "Player profissional de Mídia Indoor multi-cliente integrado com VPS.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
